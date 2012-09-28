@@ -1,0 +1,17 @@
+<script id="button-dropdown-template" type="text/x-handlebars-template">
+    <div class="btn-group">
+  <a class="btn dropdown-toggle {{#if type}}btn-{{type}}{{/if}}" data-toggle="dropdown" href="#">
+    {{label}}
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    {{#each items}}
+    {{#if bDivider}}
+        <li class="divider"></li>
+    {{else}}
+       {{>button-dropdown-link-template}}
+    {{/if}}
+    {{/each}}
+  </ul>
+</div>
+</script>

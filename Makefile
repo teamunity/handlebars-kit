@@ -17,8 +17,14 @@ handlebars:	clean
 	uglifyjs ${MUSTACHE} > build/js/mustache.min.js
 	uglifyjs ${ASSETS_DIR}/js/${HANDLEBARSJS} > build/js/handlebars.min.js
 	uglifyjs ${ASSETS_DIR}/js/underscore.js > build/js/underscore.min.js 
-	uglifyjs -o build/js/json2.min.js ${ASSETS_DIR}/js/json2.js
-	echo "Done Building...\n"
+	uglifyjs ${ASSETS_DIR}/js/json2.js > build/js/json2.min.js
+	cat build/js/json2.min.js > build/js/kit.js
+	echo "\n" >> build/js/kit.js
+	cat build/js/underscore.min.js >> build/js/kit.js
+	echo "\n" >> build/js/kit.js
+	cat build/js/handlebars.min.js >> build/js/kit.js
+
+	echo "Combined JS to build/js/kit.js ...\n"
 
 #
 # CLEANS THE ROOT DIRECTORY OF PRIOR BUILDS
